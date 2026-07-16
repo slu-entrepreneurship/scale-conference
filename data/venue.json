@@ -1,0 +1,56 @@
+{
+  "eventName": "Summer Learning Institute 2026",
+  "googleMaps": {
+    "apiKeyPlaceholder": "SLI_GOOGLE_MAPS_API_KEY",
+    "defaultZoom": 17,
+    "mapId": "",
+    "libraries": ["places", "geometry"]
+  },
+  "venue": {
+    "name": "SLU Cook Hall",
+    "label": "Main Entrance",
+    "navigationLabel": "SLU Cook Hall – Main Entrance",
+    "address": "3684 Lindell Blvd #3676, St. Louis, MO 63108",
+    "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=38.637204605740266%2C-90.23601499410955",
+    "latitude": 38.637204605740266,
+    "longitude": -90.23601499410955,
+    "image": "",
+    "details": [
+      "Primary event check-in and sessions",
+      "All navigation routes target the Main Entrance marker",
+      "Nearby entrance marked on the event map"
+    ]
+  },
+  "parking": {
+    "name": "Laclede Parking Garage",
+    "label": "Parking",
+    "address": "3642 Laclede Ave, St. Louis, MO 63108",
+    "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=Laclede%20Parking%20Garage%203642%20Laclede%20Ave%20St.%20Louis%2C%20MO%2063108",
+    "latitude": 38.6372,
+    "longitude": -90.2345,
+    "image": "",
+    "tips": [
+      "Use visitor parking areas when available",
+      "Allow extra time during campus events",
+      "Keep your license plate and payment method handy",
+      "Follow event signage for the walking route to Cook Hall"
+    ]
+  },
+  "venues": [],
+  "parkingOptions": [],
+  "shuttleStops": [],
+  "hotels": [],
+  "sponsorLocations": [],
+  "amenityLayers": [
+    { "id": "atm", "label": "ATM", "googleType": "atm", "enabled": true },
+    { "id": "hotels", "label": "Hotels", "googleType": "lodging", "enabled": true },
+    { "id": "metro", "label": "Metro Station", "googleType": "subway_station", "enabled": true },
+    { "id": "hospital", "label": "Hospital", "googleType": "hospital", "enabled": true }
+  ],
+  "copy": {
+    "heroTitle": "Venue & Parking",
+    "heroSubtitle": "Navigate from parking to sessions with one-tap directions, map layers, and attendee-friendly wayfinding.",
+    "buildingInformation": "Cook Hall is the main event venue for institute sessions and check-in.",
+    "visitorParkingInformation": "Visitor parking information may vary by campus event. Check signage and posted rates when entering the garage."
+  }
+}

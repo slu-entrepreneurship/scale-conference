@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Interactive venue, parking, and wayfinding guide for the Summer Learning Institute." />
+    <meta name="theme-color" content="#0b3d7c" />
+    <title>Venue & Parking | Summer Learning Institute 2026</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/venue.css" />
+  </head>
+  <body data-page="venue">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Primary navigation">
+        <a class="brand" href="index.html">
+          <span class="brand-logos">
+            <img src="images/logos/soe-logo.png" alt="Saint Louis University School of Education" />
+          </span>
+          <span class="brand-name">SLI 2026</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#schedule">Schedule</a>
+          <a href="speakers.html">Speakers</a>
+          <a href="venue.html">Venue</a>
+          <a href="index.html#search">Search</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="venue-hero-pro">
+        <div class="container venue-hero-grid">
+          <div>
+            <p class="eyebrow">Wayfinding</p>
+            <h1 id="venue-hero-title">Venue & Parking</h1>
+            <p id="venue-hero-subtitle">Loading venue details...</p>
+            <div class="venue-hero-actions">
+              <button id="primary-navigate" class="btn btn-primary" type="button">Navigate</button>
+              <button id="share-location" class="btn btn-secondary" type="button">Share Location</button>
+              <button id="print-directions" class="btn btn-secondary" type="button">Print Directions</button>
+            </div>
+          </div>
+          <aside class="route-summary-card" aria-live="polite">
+            <p class="card-label">Parking to Event Hall</p>
+            <div class="route-metrics">
+              <div><strong id="walking-distance">--</strong><span>Distance</span></div>
+              <div><strong id="walking-duration">--</strong><span>Walk</span></div>
+            </div>
+            <p id="route-status">Route will calculate when the map loads.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="venue-map-section">
+        <div class="container">
+          <div class="map-command-bar" aria-label="Map controls">
+            <div>
+              <p class="card-label">Interactive Map</p>
+              <h2 id="map-heading">SLU Cook Hall</h2>
+            </div>
+            <div id="amenity-layer-controls" class="layer-controls"></div>
+          </div>
+          <div class="map-shell-pro">
+            <div id="google-map" class="google-map" role="application" aria-label="Interactive Google map for venue and parking"></div>
+            <div id="map-fallback" class="map-fallback" hidden>
+              <div class="fallback-map-art">
+                <span class="fallback-pin venue-pin"></span>
+                <span class="fallback-pin parking-pin"></span>
+                <span class="fallback-route"></span>
+              </div>
+              <h3>Google Maps API key required</h3>
+              <p>Add a key through <code>window.SLI_GOOGLE_MAPS_API_KEY</code> or <code>localStorage.SLI_GOOGLE_MAPS_API_KEY</code> to enable the live map, route calculation, Street View, satellite controls, and nearby place layers.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section venue-detail-section">
+        <div class="container">
+          <div id="location-cards" class="location-card-grid"></div>
+        </div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow">Nearby</p>
+              <h2>Optional amenity layers</h2>
+            </div>
+          </div>
+          <div id="nearby-amenities" class="nearby-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <div class="sticky-navigate">
+      <button id="sticky-navigate-button" class="btn btn-primary" type="button">Navigate to Venue</button>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="footer-logos">
+            <img src="images/logos/soe-logo.png" alt="Saint Louis University School of Education" />
+          </div>
+          <p>&copy; 2026 Saint Louis University School of Education.</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <a href="index.html#schedule">Schedule</a>
+          <a href="speakers.html">Speakers</a>
+          <a href="venue.html">Venue</a>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <a href="mailto:oscp@slu.edu">oscp@slu.edu</a>
+          <a href="https://www.slu.edu/education/" target="_blank" rel="noopener noreferrer">Official Website</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      window.SLI_GOOGLE_MAPS_API_KEY = window.SLI_GOOGLE_MAPS_API_KEY || "";
+    </script>
+    <script src="js/utilities.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/venue.js"></script>
+  </body>
+</html>
