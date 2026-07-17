@@ -143,14 +143,19 @@
     letter-spacing: -0.025em;
   }
 
+  .hero-panel {
+    justify-items: center;
+  }
+
   .hero-brand-card {
-    justify-self: stretch;
+    width: min(100%, 340px);
+    justify-self: center;
     justify-content: center;
   }
 
   .hero-brand-card img {
-    height: 78px;
-    max-width: 260px;
+    height: 70px;
+    max-width: 220px;
   }
 
   .countdown,
