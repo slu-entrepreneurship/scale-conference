@@ -54,7 +54,6 @@ class SpeakerData {
           <h3>${UTILS.escapeHTML(speaker.Name || '')}</h3>
           <p class="speaker-credentials">${UTILS.escapeHTML(speaker.Credentials || '')}</p>
           <p class="speaker-org">${UTILS.escapeHTML(speaker.Organization || '')}</p>
-          <p class="speaker-bio">${UTILS.escapeHTML(speaker.Bio || 'Biography forthcoming.')}</p>
           <div class="speaker-sessions">
             <h4>Sessions</h4>
             <ul>${sessionMarkup}</ul>

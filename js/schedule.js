@@ -118,19 +118,16 @@ class SessionDetailController {
         </div>
         <h2>Presenter</h2>
         <p>${UTILS.escapeHTML(session.Presenter || '')}</p>
-        <h2>Description</h2>
-        <p>${UTILS.escapeHTML(session.Description || 'Session description forthcoming.')}</p>
         <div class="speaker-bio-panel">
-          <h2>Speaker Bio</h2>
+          <h2>Speaker</h2>
           ${speakers.length ? speakers.map((speaker) => `
             <div class="mini-speaker">
               <img src="${UTILS.escapeAttribute(speaker.Headshot || 'images/speakers/placeholder.svg')}" alt="${UTILS.escapeHTML(speaker.Name)}" loading="lazy" />
               <div>
                 <strong>${UTILS.escapeHTML(speaker.Name)}</strong>
-                <p>${UTILS.escapeHTML(speaker.Bio || 'Biography forthcoming.')}</p>
               </div>
             </div>
-          `).join('') : '<p>Speaker bio forthcoming.</p>'}
+          `).join('') : ''}
         </div>
         <h2>Related Sessions</h2>
         <div class="related-grid">

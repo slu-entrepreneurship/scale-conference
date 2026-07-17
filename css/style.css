@@ -311,6 +311,7 @@ body[data-page="venue"] .nav-links a[href="venue.html"] {
 .hero-panel {
   display: grid;
   gap: 1rem;
+  justify-items: center;
 }
 
 .hero-brand-card,
@@ -336,17 +337,21 @@ body[data-page="venue"] .nav-links a[href="venue.html"] {
 }
 
 .hero-brand-card {
+  width: min(100%, 300px);
   justify-content: center;
-  max-width: 360px;
-  justify-self: end;
+  justify-self: center;
   background: var(--blue-900);
 }
 
 .hero-brand-card img {
   width: auto;
-  height: 64px;
-  max-width: 300px;
+  height: 96px;
+  max-width: 260px;
   object-fit: contain;
+}
+
+.countdown-card {
+  width: 100%;
 }
 
 .countdown-card h2 {
@@ -632,10 +637,6 @@ body[data-page="venue"] .nav-links a[href="venue.html"] {
 
 .speaker-org {
   font-weight: 800;
-}
-
-.speaker-bio {
-  margin-top: 0.55rem !important;
 }
 
 .speaker-sessions {
