@@ -15,20 +15,6 @@ class VenueExperience {
     this.config = await this.loadConfig();
     this.renderStaticContent();
     this.bindActions();
-    this.renderFallbackAmenities();
-
-    if (!this.apiKey) {
-      this.showFallback();
-      return;
-    }
-
-    try {
-      await this.loadGoogleMaps();
-      await this.initMap();
-    } catch (error) {
-      console.warn('Google Maps failed to initialize:', error);
-      this.showFallback();
-    }
   }
 
   async loadConfig() {
@@ -224,7 +210,6 @@ class VenueExperience {
     document.getElementById('venue-hero-subtitle').textContent = this.config.copy?.heroSubtitle || '';
     document.getElementById('map-heading').textContent = this.config.venue.name;
     this.renderLocationCards();
-    this.renderLayerControlsFallback();
     this.estimateFallbackRoute();
   }
 
@@ -283,24 +268,6 @@ class VenueExperience {
         </div>
       </article>
     `;
-  }
-
-  renderLayerControlsFallback() {
-    const controls = document.getElementById('amenity-layer-controls');
-    if (controls.innerHTML.trim()) return;
-    controls.innerHTML = this.config.amenityLayers.map((layer) => `
-      <button class="layer-toggle" type="button" data-layer="${this.escapeAttr(layer.id)}" aria-pressed="false">${this.escape(layer.label)}</button>
-    `).join('');
-  }
-
-  renderFallbackAmenities() {
-    const container = document.getElementById('nearby-amenities');
-    container.innerHTML = this.config.amenityLayers.map((layer) => `
-      <article class="nearby-card">
-        <strong>${this.escape(layer.label)}</strong>
-        <p>${layer.googleType ? 'Available as a live Google Maps layer when the API key is configured.' : 'Optional custom locations can be added in venue.json.'}</p>
-      </article>
-    `).join('');
   }
 
   bindActions() {
@@ -419,8 +386,7 @@ class VenueExperience {
   }
 
   showFallback() {
-    document.getElementById('google-map').hidden = true;
-    document.getElementById('map-fallback').hidden = false;
+    return null;
   }
 
   setRouteStatus(message) {

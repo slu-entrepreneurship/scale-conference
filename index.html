@@ -135,14 +135,17 @@
                 <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=38.637204605740266,-90.23601499410955&travelmode=driving" target="_blank" rel="noopener noreferrer">Google Maps Directions</a>
               </div>
             </article>
-            <article class="venue-card map-placeholder" aria-label="Map placeholder">
-              <div class="map-art">
-                <span class="pin pin-building"></span>
-                <span class="pin pin-parking"></span>
-                <span class="route-line"></span>
-              </div>
-              <h3>Map Placeholder</h3>
-              <p>Interactive campus map can be connected here when final wayfinding assets are approved.</p>
+            <article class="venue-card venue-map-card" aria-label="SLU Cook Hall map">
+              <iframe
+                class="home-map-embed"
+                width="100%"
+                height="260"
+                style="border:0"
+                loading="lazy"
+                allowfullscreen
+                src="https://www.google.com/maps?q=38.637204605740266,-90.23601499410955&output=embed"
+                title="Google Map for SLU Cook Hall">
+              </iframe>
             </article>
             <article class="venue-card">
               <h3>Parking</h3>
@@ -150,18 +153,6 @@
               <a class="text-link" href="https://www.google.com/maps/dir/?api=1&origin=3642%20Laclede%20Ave%2C%20St.%20Louis%2C%20MO%2063108&destination=38.637204605740266,-90.23601499410955&travelmode=walking" target="_blank" rel="noopener noreferrer">Walking Route</a>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section id="announcements" class="section">
-        <div class="container">
-          <div class="section-heading split-heading">
-            <div>
-              <p class="eyebrow">Daily Updates</p>
-              <h2>Announcements</h2>
-            </div>
-          </div>
-          <div id="announcement-list" class="announcement-grid"></div>
         </div>
       </section>
 
@@ -192,11 +183,11 @@
     </footer>
     <a class="back-to-top" href="#main" aria-label="Back to top">↑</a>
 
-    <script src="js/utilities.js?v=20260717"></script>
-    <script src="js/csv-loader.js?v=20260717"></script>
-    <script src="js/schedule.js?v=20260717"></script>
-    <script src="js/speakers.js?v=20260717"></script>
-    <script src="js/search.js?v=20260717"></script>
-    <script src="js/app.js?v=20260717"></script>
+    <script src="js/utilities.js?v=20260717-3"></script>
+    <script src="js/csv-loader.js?v=20260717-3"></script>
+    <script src="js/schedule.js?v=20260717-3"></script>
+    <script src="js/speakers.js?v=20260717-3"></script>
+    <script src="js/search.js?v=20260717-3"></script>
+    <script src="js/app.js?v=20260717-3"></script>
   </body>
 </html>

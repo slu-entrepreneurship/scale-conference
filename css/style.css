@@ -678,6 +678,18 @@ body[data-page="venue"] .nav-links a[href="venue.html"] {
   padding: 1rem;
 }
 
+.venue-map-card {
+  padding: 0.65rem;
+}
+
+.home-map-embed {
+  display: block;
+  width: 100%;
+  height: 260px;
+  border-radius: var(--radius-sm);
+  background: var(--gray-100);
+}
+
 .venue-card h3,
 .announcement-card h3 {
   margin: 0 0 0.45rem;

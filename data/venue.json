@@ -41,12 +41,7 @@
   "shuttleStops": [],
   "hotels": [],
   "sponsorLocations": [],
-  "amenityLayers": [
-    { "id": "atm", "label": "ATM", "googleType": "atm", "enabled": true },
-    { "id": "hotels", "label": "Hotels", "googleType": "lodging", "enabled": true },
-    { "id": "metro", "label": "Metro Station", "googleType": "subway_station", "enabled": true },
-    { "id": "hospital", "label": "Hospital", "googleType": "hospital", "enabled": true }
-  ],
+  "amenityLayers": [],
   "copy": {
     "heroTitle": "Venue & Parking",
     "heroSubtitle": "Navigate from parking to sessions with one-tap directions, map layers, and attendee-friendly wayfinding.",

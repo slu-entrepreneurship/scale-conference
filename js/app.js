@@ -65,7 +65,6 @@ async function renderHomeData() {
   const sessions = days.flatMap((day) => day.rows);
   renderStats(days, speakerPayload.speakers);
   renderFeaturedKeynote(sessions);
-  renderAnnouncements(days);
 }
 
 function renderStats(days, speakers) {
@@ -98,27 +97,4 @@ function renderFeaturedKeynote(sessions) {
     </div>
     <a class="btn btn-outline" href="${UTILS.sessionUrl(keynote)}">View Session</a>
   `;
-}
-
-async function renderAnnouncements(days) {
-  const list = document.getElementById('announcement-list');
-  if (!list) return;
-  const announcements = await csvLoader.loadCSV('announcements.csv', { optional: true });
-  if (announcements.length) {
-    list.innerHTML = announcements.map((item) => `
-      <article class="announcement-card">
-        <span class="chip">${UTILS.escapeHTML(item.Date || item.Day || 'Update')}</span>
-        <h3>${UTILS.escapeHTML(item.Title || 'Announcement')}</h3>
-        <p>${UTILS.escapeHTML(item.Message || item.Description || '')}</p>
-      </article>
-    `).join('');
-    return;
-  }
-  list.innerHTML = days.map((day) => `
-    <article class="announcement-card">
-      <span class="chip">${UTILS.escapeHTML(day.day)}</span>
-      <h3>${UTILS.escapeHTML(day.rows.length)} sessions loaded</h3>
-      <p>Daily updates, room changes, and reminders can be added later through an optional announcements CSV.</p>
-    </article>
-  `).join('');
 }

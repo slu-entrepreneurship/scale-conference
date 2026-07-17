@@ -36,8 +36,7 @@
 .route-summary-card,
 .map-command-bar,
 .map-shell-pro,
-.location-card,
-.nearby-card {
+.location-card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
@@ -98,53 +97,22 @@
   margin: 0;
 }
 
-.layer-controls {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.45rem;
-}
-
-.layer-toggle {
-  min-height: 36px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.45rem 0.7rem;
-  color: var(--blue);
-  background: #FFFFFF;
-  font-weight: 900;
-  cursor: pointer;
-}
-
-.layer-toggle.active {
-  color: #FFFFFF;
-  border-color: var(--blue);
-  background: var(--blue);
-}
-
 .map-shell-pro {
   position: relative;
   overflow: hidden;
-  min-height: 500px;
   padding: 0.65rem;
 }
 
-.google-map,
-.map-fallback {
+.venue-map-embed {
   width: 100%;
-  min-height: 480px;
   border-radius: var(--radius-sm);
   overflow: hidden;
   background: var(--gray-100);
 }
 
-.map-fallback {
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 1rem;
-  padding: 1.2rem;
-  text-align: center;
+.venue-map-embed {
+  display: block;
+  height: 450px;
 }
 
 .fallback-map-art {
@@ -323,26 +291,6 @@
   font-size: 0.9rem;
 }
 
-.nearby-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.85rem;
-}
-
-.nearby-card {
-  padding: 1rem;
-}
-
-.nearby-card strong {
-  display: block;
-  margin-bottom: 0.35rem;
-}
-
-.nearby-card p {
-  margin: 0;
-  color: var(--muted);
-}
-
 .sticky-navigate {
   position: fixed;
   left: 50%;
@@ -383,13 +331,6 @@
     align-items: start;
   }
 
-  .layer-controls {
-    justify-content: flex-start;
-  }
-
-  .nearby-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 720px) {
@@ -404,14 +345,8 @@
     align-items: stretch;
   }
 
-  .map-shell-pro,
-  .google-map,
-  .map-fallback {
-    min-height: 430px;
-  }
-
-  .nearby-grid {
-    grid-template-columns: 1fr;
+  .venue-map-embed {
+    height: 430px;
   }
 
   .sticky-navigate {
@@ -423,13 +358,11 @@
   .route-summary-card,
   .map-command-bar,
   .map-shell-pro,
-  .location-card,
-  .nearby-card {
+  .location-card {
     background: var(--surface);
     color: var(--text);
   }
 
-  .layer-toggle,
   .action-button {
     background: #FFFFFF;
     color: var(--blue);

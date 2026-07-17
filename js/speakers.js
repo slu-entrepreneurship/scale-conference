@@ -86,7 +86,7 @@ class SpeakersController {
   async render() {
     const { speakers } = await speakerData.load();
     if (this.previewGrid) {
-      this.previewGrid.innerHTML = speakers.slice(0, 6).map((speaker) => speakerData.card(speaker)).join('');
+      this.previewGrid.innerHTML = this.randomSpeakers(speakers, 6).map((speaker) => speakerData.card(speaker)).join('');
       requestAnimationFrame(() => {
         this.previewGrid.querySelectorAll('.reveal').forEach((item) => item.classList.add('visible'));
       });
@@ -113,6 +113,12 @@ class SpeakersController {
     requestAnimationFrame(() => {
       this.grid.querySelectorAll('.reveal').forEach((item) => item.classList.add('visible'));
     });
+  }
+
+  randomSpeakers(speakers, count) {
+    return [...speakers]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, count);
   }
 }
 

@@ -65,19 +65,18 @@
               <p class="card-label">Interactive Map</p>
               <h2 id="map-heading">SLU Cook Hall</h2>
             </div>
-            <div id="amenity-layer-controls" class="layer-controls"></div>
           </div>
           <div class="map-shell-pro">
-            <div id="google-map" class="google-map" role="application" aria-label="Interactive Google map for venue and parking"></div>
-            <div id="map-fallback" class="map-fallback" hidden>
-              <div class="fallback-map-art">
-                <span class="fallback-pin venue-pin"></span>
-                <span class="fallback-pin parking-pin"></span>
-                <span class="fallback-route"></span>
-              </div>
-              <h3>Google Maps API key required</h3>
-              <p>Add a key through <code>window.SLI_GOOGLE_MAPS_API_KEY</code> or <code>localStorage.SLI_GOOGLE_MAPS_API_KEY</code> to enable the live map, route calculation, Street View, satellite controls, and nearby place layers.</p>
-            </div>
+            <iframe
+              class="venue-map-embed"
+              width="100%"
+              height="450"
+              style="border:0"
+              loading="lazy"
+              allowfullscreen
+              src="https://www.google.com/maps?q=38.637204605740266,-90.23601499410955&output=embed"
+              title="Google Map for SLU Cook Hall">
+            </iframe>
           </div>
         </div>
       </section>
@@ -88,17 +87,6 @@
         </div>
       </section>
 
-      <section class="section section-soft">
-        <div class="container">
-          <div class="section-heading split-heading">
-            <div>
-              <p class="eyebrow">Nearby</p>
-              <h2>Optional amenity layers</h2>
-            </div>
-          </div>
-          <div id="nearby-amenities" class="nearby-grid"></div>
-        </div>
-      </section>
     </main>
 
     <div class="sticky-navigate">
@@ -130,8 +118,8 @@
     <script>
       window.SLI_GOOGLE_MAPS_API_KEY = window.SLI_GOOGLE_MAPS_API_KEY || "";
     </script>
-    <script src="js/utilities.js?v=20260717"></script>
-    <script src="js/app.js?v=20260717"></script>
-    <script src="js/venue.js?v=20260717"></script>
+    <script src="js/utilities.js?v=20260717-3"></script>
+    <script src="js/app.js?v=20260717-3"></script>
+    <script src="js/venue.js?v=20260717-3"></script>
   </body>
 </html>
