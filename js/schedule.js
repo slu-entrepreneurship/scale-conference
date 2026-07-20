@@ -118,6 +118,10 @@ class SessionDetailController {
         </div>
         <h2>Presenter</h2>
         <p>${UTILS.escapeHTML(session.Presenter || '')}</p>
+        ${session.Description ? `
+          <h2>Description</h2>
+          <p class="profile-description">${UTILS.escapeHTML(session.Description)}</p>
+        ` : ''}
         <div class="speaker-bio-panel">
           <h2>Speaker</h2>
           ${speakers.length ? speakers.map((speaker) => `

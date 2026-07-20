@@ -656,6 +656,110 @@ body[data-page="venue"] .nav-links a[href="venue.html"] {
   color: var(--muted);
 }
 
+.speaker-sessions li {
+  margin-bottom: 0.55rem;
+}
+
+.read-more-btn {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.3rem;
+  border: 1px solid rgba(0, 61, 165, 0.18);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  color: var(--blue);
+  background: #FFFFFF;
+  font-size: 0.84rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.read-more-btn:hover {
+  color: #FFFFFF;
+  background: var(--blue);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.speaker-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(0, 36, 77, 0.58);
+}
+
+.speaker-modal-panel {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: min(84vh, 860px);
+  overflow: auto;
+  padding: 1.25rem;
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  background: #FFFFFF;
+  box-shadow: var(--shadow);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--blue-900);
+  background: #FFFFFF;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.speaker-profile-head {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  padding-right: 3rem;
+}
+
+.speaker-profile-head .speaker-photo {
+  width: 84px;
+  height: 84px;
+}
+
+.speaker-profile-head h2 {
+  margin: 0;
+  line-height: 1.12;
+}
+
+.profile-sessions {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.profile-session {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.profile-session h3 {
+  margin: 0 0 0.55rem;
+  line-height: 1.22;
+}
+
+.profile-description {
+  white-space: pre-wrap;
+}
+
 .toolbar {
   display: grid;
   grid-template-columns: 1fr 220px;

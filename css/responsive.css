@@ -167,6 +167,11 @@
     grid-template-columns: 1fr;
   }
 
+  .speaker-profile-head {
+    grid-template-columns: 1fr;
+    padding-right: 2.8rem;
+  }
+
   .speaker-photo {
     width: 70px;
     height: 70px;

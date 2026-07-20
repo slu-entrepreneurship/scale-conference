@@ -34,15 +34,41 @@ class CSVLoader {
   parseCSV(text) {
     const trimmed = text.replace(/^\uFEFF/, '').trim();
     if (!trimmed) return [];
-    const lines = trimmed.split(/\r?\n/);
-    const headers = this.parseLine(lines.shift()).map((header) => header.trim());
-    return lines.filter((line) => line.trim()).map((line) => {
-      const values = this.parseLine(line);
+    const records = this.parseRecords(trimmed);
+    const headers = this.parseLine(records.shift()).map((header) => header.trim());
+    return records.filter((record) => record.trim()).map((record) => {
+      const values = this.parseLine(record);
       return headers.reduce((row, header, index) => {
-        row[header] = (values[index] || '').trim();
+        row[header] = values[index] || '';
         return row;
       }, {});
     });
+  }
+
+  parseRecords(text) {
+    const records = [];
+    let current = '';
+    let inQuotes = false;
+    for (let i = 0; i < text.length; i += 1) {
+      const char = text[i];
+      if (char === '"') {
+        if (inQuotes && text[i + 1] === '"') {
+          current += char + text[i + 1];
+          i += 1;
+        } else {
+          inQuotes = !inQuotes;
+          current += char;
+        }
+      } else if ((char === '\n' || char === '\r') && !inQuotes) {
+        if (char === '\r' && text[i + 1] === '\n') i += 1;
+        records.push(current);
+        current = '';
+      } else {
+        current += char;
+      }
+    }
+    records.push(current);
+    return records;
   }
 
   parseLine(line) {
