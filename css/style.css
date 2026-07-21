@@ -506,6 +506,19 @@ body[data-page="venue"] .nav-links a[href="venue.html"] {
   padding: 1rem;
 }
 
+.agenda-card {
+  border-color: rgba(11, 61, 124, 0.16);
+  background: #FFFFFF;
+  grid-column: 1 / -1;
+}
+
+.agenda-card-body {
+  display: grid;
+  gap: 0.65rem;
+  height: 100%;
+  padding: 1rem;
+}
+
 .session-card.keynote {
   border-color: rgba(255, 199, 44, 0.5);
   grid-column: 1 / -1;

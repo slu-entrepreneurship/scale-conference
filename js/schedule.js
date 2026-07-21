@@ -36,7 +36,9 @@ class ScheduleController {
       this.list.innerHTML = '<div class="empty-state">No schedule data found.</div>';
       return;
     }
-    const grouped = day.rows.reduce((groups, session) => {
+    const items = [...this.commonAgendaItems(day.day), ...day.rows]
+      .sort((a, b) => this.startMinutes(a.Time) - this.startMinutes(b.Time));
+    const grouped = items.reduce((groups, session) => {
       const time = session.Time || 'Time TBD';
       groups[time] = groups[time] || [];
       groups[time].push(session);
@@ -47,13 +49,56 @@ class ScheduleController {
       <div class="timeline-block reveal">
         <div class="timeline-time">${UTILS.escapeHTML(time)}</div>
         <div class="timeline-sessions">
-          ${sessions.map((session) => this.sessionCard(session)).join('')}
+          ${sessions.map((session) => session.IsAgendaItem ? this.agendaCard(session) : this.sessionCard(session)).join('')}
         </div>
       </div>
     `).join('');
     requestAnimationFrame(() => {
       this.list.querySelectorAll('.reveal').forEach((item) => item.classList.add('visible'));
     });
+  }
+
+  commonAgendaItems(day) {
+    const sharedItems = [
+      {
+        Time: '8:00 – 9:00 AM',
+        Session_Title: 'Registration + Breakfast + Light Networking',
+        Session_Type: 'Daily Agenda'
+      },
+      {
+        Time: '12:00 – 1:00 PM',
+        Session_Title: 'Lunch',
+        Session_Type: 'Daily Agenda'
+      },
+      {
+        Time: '2:45 – 3:00 PM',
+        Session_Title: 'Daily Closing / Reflection',
+        Session_Type: 'Daily Agenda'
+      }
+    ];
+
+    if (day === 'Day 2') {
+      sharedItems.push({
+        Time: '3:00 – 5:00 PM',
+        Session_Title: 'Community Social — Thursday (Day 2) Only',
+        Session_Type: 'Daily Agenda'
+      });
+    }
+
+    return sharedItems.map((item) => ({ ...item, IsAgendaItem: true }));
+  }
+
+  startMinutes(time) {
+    const value = String(time || '');
+    const match = value.match(/(\d{1,2}):(\d{2})/);
+    if (!match) return Number.MAX_SAFE_INTEGER;
+    const periodMatch = value.match(/\b(AM|PM)\b/i);
+    const period = periodMatch ? periodMatch[1].toUpperCase() : 'AM';
+    let hours = Number(match[1]);
+    const minutes = Number(match[2]);
+    if (period === 'PM' && hours !== 12) hours += 12;
+    if (period === 'AM' && hours === 12) hours = 0;
+    return (hours * 60) + minutes;
   }
 
   sessionCard(session) {
@@ -71,6 +116,22 @@ class ScheduleController {
             ${session.Track ? `<span class="chip">${UTILS.escapeHTML(session.Track)}</span>` : ''}
           </div>
         </a>
+      </article>
+    `;
+  }
+
+  agendaCard(item) {
+    return `
+      <article class="session-card agenda-card">
+        <div class="agenda-card-body">
+          <div class="session-topline">
+            <span>${UTILS.escapeHTML(item.Time || '')}</span>
+          </div>
+          <h3>${UTILS.escapeHTML(item.Session_Title || '')}</h3>
+          <div class="chip-row">
+            <span class="chip">${UTILS.escapeHTML(item.Session_Type || '')}</span>
+          </div>
+        </div>
       </article>
     `;
   }
