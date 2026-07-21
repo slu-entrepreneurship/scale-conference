@@ -20,6 +20,7 @@
   .hero-grid,
   .feature-grid,
   .venue-layout,
+  .daily-logistics,
   .footer-grid {
     grid-template-columns: 1fr;
   }
@@ -29,6 +30,10 @@
   }
 
   .timeline-sessions {
+    grid-template-columns: 1fr;
+  }
+
+  .daily-logistics-list {
     grid-template-columns: 1fr;
   }
 

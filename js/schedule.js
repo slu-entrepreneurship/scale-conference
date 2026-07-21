@@ -2,6 +2,7 @@ class ScheduleController {
   constructor() {
     this.tabs = document.getElementById('schedule-tabs');
     this.list = document.getElementById('schedule-list');
+    this.logisticsList = document.getElementById('daily-logistics-list');
     this.days = [];
     this.activeDay = '';
     this.init();
@@ -12,6 +13,7 @@ class ScheduleController {
     this.days = await csvLoader.loadSessionDays();
     this.activeDay = this.days[0]?.day || '';
     this.renderTabs();
+    this.renderLogistics();
     this.renderSchedule();
   }
 
@@ -25,6 +27,7 @@ class ScheduleController {
       button.addEventListener('click', () => {
         this.activeDay = button.dataset.day;
         this.renderTabs();
+        this.renderLogistics();
         this.renderSchedule();
       });
     });
@@ -36,7 +39,7 @@ class ScheduleController {
       this.list.innerHTML = '<div class="empty-state">No schedule data found.</div>';
       return;
     }
-    const items = [...this.commonAgendaItems(day.day), ...day.rows]
+    const items = [...day.rows]
       .sort((a, b) => this.startMinutes(a.Time) - this.startMinutes(b.Time));
     const grouped = items.reduce((groups, session) => {
       const time = session.Time || 'Time TBD';
@@ -49,13 +52,29 @@ class ScheduleController {
       <div class="timeline-block reveal">
         <div class="timeline-time">${UTILS.escapeHTML(time)}</div>
         <div class="timeline-sessions">
-          ${sessions.map((session) => session.IsAgendaItem ? this.agendaCard(session) : this.sessionCard(session)).join('')}
+          ${sessions.map((session) => this.sessionCard(session)).join('')}
         </div>
       </div>
     `).join('');
     requestAnimationFrame(() => {
       this.list.querySelectorAll('.reveal').forEach((item) => item.classList.add('visible'));
     });
+  }
+
+  renderLogistics() {
+    if (!this.logisticsList) return;
+    const day = this.days.find((item) => item.day === this.activeDay);
+    if (!day) {
+      this.logisticsList.innerHTML = '<div class="empty-state">No logistics found.</div>';
+      return;
+    }
+
+    this.logisticsList.innerHTML = this.commonAgendaItems(day.day).map((item) => `
+      <article class="logistics-card">
+        <span>${UTILS.escapeHTML(item.Time || '')}</span>
+        <strong>${UTILS.escapeHTML(item.Session_Title || '')}</strong>
+      </article>
+    `).join('');
   }
 
   commonAgendaItems(day) {
@@ -85,7 +104,7 @@ class ScheduleController {
       });
     }
 
-    return sharedItems.map((item) => ({ ...item, IsAgendaItem: true }));
+    return sharedItems;
   }
 
   startMinutes(time) {
@@ -120,21 +139,6 @@ class ScheduleController {
     `;
   }
 
-  agendaCard(item) {
-    return `
-      <article class="session-card agenda-card">
-        <div class="agenda-card-body">
-          <div class="session-topline">
-            <span>${UTILS.escapeHTML(item.Time || '')}</span>
-          </div>
-          <h3>${UTILS.escapeHTML(item.Session_Title || '')}</h3>
-          <div class="chip-row">
-            <span class="chip">${UTILS.escapeHTML(item.Session_Type || '')}</span>
-          </div>
-        </div>
-      </article>
-    `;
-  }
 }
 
 class SessionDetailController {
