@@ -460,47 +460,48 @@ body[data-page="venue"] .nav-links a[href="venue.html"] {
 
 .daily-logistics {
   display: grid;
-  grid-template-columns: minmax(180px, 0.28fr) minmax(0, 1fr);
-  gap: 1rem;
-  align-items: start;
-  margin: 0 0 1.5rem;
-  padding: 1rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: #FFFFFF;
-  box-shadow: var(--soft-shadow);
+  gap: 0.75rem;
+  margin: -0.25rem 0 1.35rem;
 }
 
 .daily-logistics h3 {
   margin: 0;
   color: var(--ink);
-  font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+  font-size: 1rem;
 }
 
 .daily-logistics-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
 }
 
 .logistics-card {
-  display: grid;
-  gap: 0.35rem;
-  min-height: 88px;
-  padding: 0.85rem;
-  border: 1px solid rgba(11, 61, 124, 0.14);
-  border-radius: var(--radius-sm);
-  background: var(--soft-blue);
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+  align-items: center;
+  min-height: 42px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(11, 61, 124, 0.18);
+  border-radius: 999px;
+  background: #FFFFFF;
+  box-shadow: var(--soft-shadow);
 }
 
 .logistics-card span {
-  color: var(--blue);
-  font-size: 0.84rem;
+  color: #FFFFFF;
+  font-size: 0.78rem;
   font-weight: 900;
+  line-height: 1;
+  padding: 0.28rem 0.45rem;
+  border-radius: 999px;
+  background: var(--blue);
 }
 
 .logistics-card strong {
   color: var(--ink);
+  font-size: 0.88rem;
   line-height: 1.25;
 }
 

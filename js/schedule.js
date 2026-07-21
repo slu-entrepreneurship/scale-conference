@@ -69,7 +69,7 @@ class ScheduleController {
       return;
     }
 
-    this.logisticsList.innerHTML = this.commonAgendaItems(day.day).map((item) => `
+    this.logisticsList.innerHTML = this.commonAgendaItems().map((item) => `
       <article class="logistics-card">
         <span>${UTILS.escapeHTML(item.Time || '')}</span>
         <strong>${UTILS.escapeHTML(item.Session_Title || '')}</strong>
@@ -77,34 +77,21 @@ class ScheduleController {
     `).join('');
   }
 
-  commonAgendaItems(day) {
-    const sharedItems = [
+  commonAgendaItems() {
+    return [
       {
         Time: '8:00 – 9:00 AM',
-        Session_Title: 'Registration + Breakfast + Light Networking',
-        Session_Type: 'Daily Agenda'
+        Session_Title: 'Registration + Breakfast + Light Networking'
       },
       {
         Time: '12:00 – 1:00 PM',
-        Session_Title: 'Lunch',
-        Session_Type: 'Daily Agenda'
+        Session_Title: 'Lunch'
       },
       {
         Time: '2:45 – 3:00 PM',
-        Session_Title: 'Daily Closing / Reflection',
-        Session_Type: 'Daily Agenda'
+        Session_Title: 'Daily Closing / Reflection'
       }
     ];
-
-    if (day === 'Day 2') {
-      sharedItems.push({
-        Time: '3:00 – 5:00 PM',
-        Session_Title: 'Community Social — Thursday (Day 2) Only',
-        Session_Type: 'Daily Agenda'
-      });
-    }
-
-    return sharedItems;
   }
 
   startMinutes(time) {
