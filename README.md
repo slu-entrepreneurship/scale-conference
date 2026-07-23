@@ -1,6 +1,6 @@
-# OSCP Event 2026
+# SCALE Conferenec
 
-Static digital event companion for the Saint Louis University School of Education Summer Learning Institute 2026.
+Static digital event companion for the SCALE Conference
 
 ## Local Preview
 
