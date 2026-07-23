@@ -1,4 +1,4 @@
-# SCALE Conferenec
+# SCALE Conference
 
 Static digital event companion for the SCALE Conference
 
