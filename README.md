@@ -17,7 +17,7 @@ Event content is loaded from files in `data/`:
 - `day1_sessions.csv`
 - `day2_sessions.csv`
 - `day3_sessions.csv`
-- `speakers.csv`
+- `SLU speakers - speakers.csv`
 - `venue.json`
 
 ## GitHub Pages
