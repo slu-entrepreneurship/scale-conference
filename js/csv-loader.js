@@ -20,8 +20,8 @@ class CSVLoader {
   async loadSessionDays(maxDays = 7) {
     const requests = Array.from({ length: maxDays }, (_, index) => {
       const dayNumber = index + 1;
-      return this.loadCSV(`slu_day${dayNumber}_sessions.csv`, { optional: true })
-        .then((rows) => rows.length ? { dayNumber, day: `Day ${dayNumber}`, fileName: `slu_day${dayNumber}_sessions.csv`, rows } : null);
+      return this.loadCSV(`day${dayNumber}_sessions_slu.csv`, { optional: true })
+        .then((rows) => rows.length ? { dayNumber, day: `Day ${dayNumber}`, fileName: `day${dayNumber}_sessions_slu.csv`, rows } : null);
     });
     return (await Promise.all(requests)).filter(Boolean);
   }
