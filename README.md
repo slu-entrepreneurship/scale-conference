@@ -14,9 +14,9 @@ Open `http://127.0.0.1:4173/index.html`.
 
 Event content is loaded from files in `data/`:
 
-- `slu_day1_sessions.csv`
-- `slu_day2_sessions.csv`
-- `slu_day3_sessions.csv`
+- `day1_sessions_slu.csv`
+- `day2_sessions_slu.csv`
+- `day3_sessions_slu.csv`
 - `SLU_speakers.csv`
 - `venue.json`
 
