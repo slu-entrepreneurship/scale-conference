@@ -205,7 +205,7 @@ class VenueExperience {
   }
 
   renderStaticContent() {
-    document.title = `Venue & Parking | ${this.config.eventName || 'Summer Learning Institute'}`;
+    document.title = `Venue & Parking | ${this.config.eventName || 'SCALE 2027'}`;
     document.getElementById('venue-hero-title').textContent = this.config.copy?.heroTitle || 'Venue & Parking';
     document.getElementById('venue-hero-subtitle').textContent = this.config.copy?.heroSubtitle || '';
     document.getElementById('map-heading').textContent = this.config.venue.name;
