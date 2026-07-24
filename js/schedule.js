@@ -164,7 +164,7 @@ class SessionDetailController {
       return;
     }
 
-    document.title = `${session.Session_Title} | Summer Learning Institute 2026`;
+    document.title = `${session.Session_Title} | SCALE 2027`;
     const speakers = speakerPayload.speakers.filter((speaker) => speaker.Sessions.some((item) => item.Session_Title === session.Session_Title));
     const related = sessions
       .filter((item) => item.Session_Title !== session.Session_Title && item.Presenter && session.Presenter && UTILS.normalize(item.Presenter).split(' ').some((part) => part.length > 3 && UTILS.normalize(session.Presenter).includes(part)))
