@@ -6,7 +6,7 @@ class SpeakerData {
   async load() {
     if (this.ready) return this.ready;
     this.ready = Promise.all([
-      csvLoader.loadCSV('slu_speakers.csv'),
+      csvLoader.loadCSV('speakers_slu.csv'),
       csvLoader.loadAllSessions()
     ]).then(([speakers, sessions]) => ({ speakers: this.enrichSpeakers(speakers, sessions), sessions }));
     return this.ready;
