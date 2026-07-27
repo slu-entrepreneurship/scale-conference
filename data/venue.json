@@ -9,8 +9,8 @@
   "venue": {
     "name": "SLU Cook Hall",
     "label": "Main Entrance",
-    "navigationLabel": "SLU Cook Hall – Main Entrance",
-    "address": "3684 Lindell Blvd #3676, St. Louis, MO 63108",
+    "navigationLabel": "SLU Chaifetz School of Business – Main Entrance",
+    "address": "3674 Lindell Blvd, St. Louis, MO 63108",
     "googleMapsLink": "https://www.google.com/maps/search/?api=1&query=38.637204605740266%2C-90.23601499410955",
     "latitude": 38.637204605740266,
     "longitude": -90.23601499410955,
@@ -45,7 +45,7 @@
   "copy": {
     "heroTitle": "Venue & Parking",
     "heroSubtitle": "Navigate from parking to sessions with one-tap directions, map layers, and attendee-friendly wayfinding.",
-    "buildingInformation": "Cook Hall is the main event venue for institute sessions and check-in.",
+    "buildingInformation": "Cook Hall is the main event venue for sessions and check-in.",
     "visitorParkingInformation": "Visitor parking information may vary by campus event. Check signage and posted rates when entering the garage."
   }
 }
